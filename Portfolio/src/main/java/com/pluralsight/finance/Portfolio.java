@@ -12,6 +12,7 @@ public class Portfolio implements Comparable<Portfolio>{
         this.name = name;
         this.owner = owner;
         this.assets = assets;
+
     }
 
     public void addAsset(Valuable asset){
@@ -26,17 +27,35 @@ public class Portfolio implements Comparable<Portfolio>{
         return newValue;
     }
 
-    public List<Valuable> getMostValuable(){
-        return null;
+    public Valuable getMostValuable(){
+        if(assets.isEmpty()){
+            return null;
+        }
+        Valuable maxAsset = assets.get(0);
+        for (Valuable asset : assets){
+            if(asset.getValue() > maxAsset.getValue()){
+                maxAsset = asset;
+            }
+        }
+        return maxAsset;
     }
 
-    public List<Valuable> getLeastValuable(){
-        return null;
+    public Valuable getLeastValuable(){
+        if(assets.isEmpty()){
+            return null;
+        }
+        Valuable minAsset = assets.get(0);
+        for (Valuable asset : assets){
+            if(asset.getValue() < minAsset.getValue()){
+                minAsset = asset;
+            }
+        }
+        return minAsset;
     }
 
     @Override
     public int compareTo(Portfolio other) {
-        return 0;
+        return Double.compare(this.getValue(), other.getValue());
     }
 
     public String getName() {
