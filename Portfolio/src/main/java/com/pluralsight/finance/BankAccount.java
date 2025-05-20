@@ -11,8 +11,9 @@ public class BankAccount implements Valuable{
         this.balance = balance;
     }
 
-    public double deposit(){
-        return 0;
+    public double deposit(double amount){
+        balance += amount;
+        return balance;
     }
 
     public double withdraw(){
@@ -21,7 +22,7 @@ public class BankAccount implements Valuable{
 
     @Override
     public double getValue() {
-        return 0;
+        return balance;
     }
 
     public String getName() {
