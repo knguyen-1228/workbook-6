@@ -1,5 +1,6 @@
 package com.pluralsight.finance;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Portfolio implements Comparable<Portfolio>{
@@ -13,9 +14,52 @@ public class Portfolio implements Comparable<Portfolio>{
         this.assets = assets;
     }
 
+    public void addAsset(Valuable asset){
+        assets.add(asset);
+    }
+
+    public double getValue(){
+        double newValue = 0;
+        for(Valuable asset : assets){
+            newValue += asset.getValue();
+        }
+        return newValue;
+    }
+
+    public List<Valuable> getMostValuable(){
+        return null;
+    }
+
+    public List<Valuable> getLeastValuable(){
+        return null;
+    }
 
     @Override
-    public int compareTo(Portfolio o) {
+    public int compareTo(Portfolio other) {
         return 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public List<Valuable> getAssets() {
+        return assets;
+    }
+
+    public void setAssets(List<Valuable> assets) {
+        this.assets = assets;
     }
 }
