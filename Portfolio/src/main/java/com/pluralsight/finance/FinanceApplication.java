@@ -10,7 +10,7 @@ public class FinanceApplication {
         deposit only works for account one bc Valuable does not have the method deposit
         account 1 has all the methods in bank account
         account 2 only has getValue
-      
+
         */
 
     }
