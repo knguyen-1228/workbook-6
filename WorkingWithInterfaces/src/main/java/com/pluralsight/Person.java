@@ -13,7 +13,15 @@ public class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(Person other){
-        return this.lastName.compareTo(other.lastName);
+        if(this.getLastName().equalsIgnoreCase(other.getLastName())){
+            if(this.getFirstName().equalsIgnoreCase(other.getFirstName())){
+                return Integer.compare(this.age,other.age);
+            }else {
+                return this.getFirstName().compareToIgnoreCase(other.getFirstName());
+            }
+        }else {
+            return this.lastName.compareToIgnoreCase(other.lastName);
+        }
     }
 
     @Override
